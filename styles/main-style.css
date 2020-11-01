@@ -1,0 +1,264 @@
+
+
+:root {
+	  /* CSS HEX */
+	--french-sky-blue: #67aaf9ff;
+	--dim-gray: #646165ff;
+	--mindaro: #dbff76ff;
+	--celeste: #9dfff9ff;
+	--fiery-rose: #f45b69ff;
+
+	/* CSS HEX */
+	--tiffany-blue: #00bfb2ff;
+	--dark-slate-gray: #1a5e63ff;
+	--metallic-seaweed: #028090ff;
+	--pale-spring-bud: #f0f3bdff;
+	--red-violet-crayola: #c64191ff;
+
+	/* CSS HEX */
+	--blue-munsell: #1b9aaaff;
+	--space-cadet: #2f3061ff;
+	--paradise-pink: #ef476fff;
+	--lemon-yellow-crayola: #feffa5ff;
+	--lavender-blue: #c3bef7ff;
+}
+/* example of CSS variables
+#div1 {
+  background-color: var(--main-bg-color);
+}
+
+#div2 {
+  background-color: var(--main-bg-color);
+}
+*/
+.nav-pills {
+	margin-top:15px;
+}
+body {
+	background-color: white;
+	font-family:helvetica;
+}
+h1{
+	color: #004085;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+h2{
+	text-align:center;
+	color: #004085;
+	margin-top:3%;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-size:2.5em;
+}
+h3 {
+	color: #004085;
+	font-size: 1.5rem;
+}
+a.active {
+	background-color: var(--tiffany-blue);
+}
+.profile-img {
+	margin-bottom: 5%;
+}
+.job-title {
+	font-weight:bold;
+	width: 100%;
+}
+.company-name {
+	font-style:italic;
+}
+li.nav-item {
+   /* margin-left: 10px;
+    margin-right: 20px;*/
+}
+.introName{
+	font-size:120px;
+	text-transform: uppercase;
+	line-height: 0.8em;
+}
+.introFName {
+    margin-left: 10px;
+}
+.introLName {
+    margin-left: 1.5em;
+}
+.introPosition{
+	font-size:36px;
+	text-transform: uppercase;
+	text-align:right;
+	/*margin-right: 10%;*/
+	margin-top: 0.5em;
+}
+.nameSection{
+	width:auto;
+}
+sup { top: -.25em; }
+#introHeader {
+    margin-top: -10vh;
+    /* box-sizing: border-box; */
+    min-height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.scrollMore{
+	text-align:center;
+	/* margin-top:10%; */
+	width: 100%;
+	position: absolute;
+	top: 80vh;
+}
+.scrollMoreIcon{
+	color: #638ab4;
+	/* margin-top: 5vh; */
+}
+
+span.highlight {
+    color: #0040859c;
+}
+.navbar-light{
+	background-color: #fffffffa;
+}
+.skill{
+	display:flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
+}
+.skillLeft {
+    width: 20%;
+    font-style:italic;
+}
+
+.skillRight {
+    width: 80%;
+    text-align: right;
+}
+.profileSummaryContainer{
+    display: flex;
+    flex-wrap:wrap;
+}
+.summarySection{
+    width: 66.66%;
+    padding-right:10px;
+}
+.skillSection{
+	width:33.33%;
+}
+.summaryIntro{
+	width:100%;
+	margin-bottom: 20px;
+}
+.skillHeader{
+	width:100%;
+}
+.job-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+.educationIntro{
+	display:flex;
+	margin-bottom: 2em;
+}
+.educationIntro img{
+	margin-right:1em;
+}
+.educationDetails{
+    margin-left: 1em;
+}
+.company-name {
+    width: 50%;
+}
+.sectionHeader{
+	text-align:center;
+	width:100%;
+	margin-top: 5em;
+	margin-bottom: 2em;
+}
+.achievement-title {
+    width: 100%;
+    font-style:italic;
+}
+.dates {
+    width: 50%;
+    text-align: right;
+}
+.achievementDetails{
+	    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top:0.5em;
+    width:100%;
+}
+
+.pageContainer {
+    max-width: 1200px;
+    margin:auto;
+    margin-bottom:8%;
+}
+.contactSection{
+	text-align:center;
+	margin-top:1em;
+}
+.contactSection a{
+	margin-left: 10px;
+}
+#emailMe{
+	margin:0;
+}
+a.nav-link.active {
+    background-color: #638ab452;
+}
+
+#topNav a.nav-link {
+    padding: 10px 1em 10px 1em;
+}
+.offset-header {
+    display: block;
+    position: relative;
+    top: -60px;
+    visibility: hidden;
+}
+
+/****** Scroll down animation ******/
+/* The animation code */
+@keyframes scrollDown {
+  0%   {margin-top: -1.5%; opacity: 0.15}
+  40% {margin-top: 0%; opacity: 0.75}
+  60% {margin-top: 0%; opacity: 0.75}
+  100% {margin-top: -1.5%; opacity: 0.15}
+}
+
+/* The element to apply the animation to */
+.scrollMore span{
+  animation-name: scrollDown;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@media only screen and (max-width: 600px) {
+	.profileimg {
+		max-width:100px;
+	}
+}
+@media only screen and (max-width: 996px) {
+	.introName{
+		font-size: 68px;
+	}
+	.introPosition{
+		font-size:24px;
+	}
+	.summarySection{
+		width:100%;
+	}
+	.skillSection{
+	width: 100%;
+}
+.introLName{
+	margin-left:1.57em;
+}
+
+}
