@@ -1,48 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-function Square(props) {
-  return (
-    <button 
-      className="square" 
-      onClick={props.onClick}>
-        {props.value}
-      </button>
-  );
-}
-  
-  class Board extends React.Component {
-
-    renderSquare(i) {
-      return <Square 
-                value={this.props.squares[i]}
-                onClick={() => this.props.onClick(i)} 
-             />;
-    }
-  
-    render() {
-      return (
-        <div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
-        </div>
-      );
-    }
-  }
-  
+/*
   class Game extends React.Component {
     constructor(props) {
       super(props);
@@ -53,29 +12,6 @@ function Square(props) {
         xIsNext: true,
         stepNumber: 0,
       };
-    }
-
-    jumpTo(step) {
-      this.setState( {
-        stepNumber: step,
-        xIsNext: (step % 2) === 0,
-      });
-    }
-    handleClick(i) {
-      const history = this.state.history.slice(0, this.state.stepNumber + 1);
-      const current = history[history.length - 1];
-      const squares = current.squares.slice();
-      if (calculatedWinner(squares) || squares[i]) {
-        return;
-      }
-      squares[i] = this.state.xIsNext ? 'X' : 'O';
-      this.setState({
-        history: history.concat([{
-          squares: squares,
-        }]),
-        xIsNext: !this.state.xIsNext,
-        stepNumber: history.length,
-      });
     }
 
     render() {
@@ -116,30 +52,41 @@ function Square(props) {
       );
     }
   }
-  
-  function calculatedWinner(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],  
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
-  }
+ */
   // ========================================
   
+function NavBar(props){
+    return (
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Recipe Website</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+            </form>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">My Account<span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    )
+}
+  class Page extends React.Component{
+    constructor(props) {
+      super(props);
+
+    }
+    render(){
+      return (<NavBar />)
+    }
+  }
   ReactDOM.render(
-    <Game />,
+    <Page />,
     document.getElementById('root')
   );
   
