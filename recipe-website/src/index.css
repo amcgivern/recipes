@@ -6,5 +6,7 @@ body {
   ol, ul {
     padding-left: 30px;
   }
- 
+ .recipe-intructions input{
+   width:100%;
+ }
   

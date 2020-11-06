@@ -17,6 +17,7 @@ function Navbar(props){
             </form>
             <ul class="navbar-nav mr-auto">
             <li><Link to="/account" className="nav-link">My Account</Link></li>
+            <li><Link to="/recipe" className="nav-link">Recipe</Link></li>
             </ul>
           </div>
         </nav>
