@@ -6,12 +6,15 @@ import image1 from '../assets/1.jpg';
 import image2 from '../assets/2.jpg';
 import image3 from '../assets/3.jpg';
 
+
 class Recipe extends React.Component{
     constructor(props) {
       super(props);
 
-      this.state = { num_clicks: 0 };
+      this.state = { num_clicks: 0,
+                    recipe: {}, };
       this.click_server = this.click_server.bind(this);
+      this.get_recipe_data = this.get_recipe_data.bind(this);
     }
 
     click_server() {
@@ -31,11 +34,36 @@ class Recipe extends React.Component{
         })
     }
 
-
+    get_recipe_data(id){
+        fetch('http://localhost:3001/recipes/' + id).then(response => {
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' +
+                  response.status);
+                return;
+              }
+        
+              // Examine the text in the response
+            response.json().then(data => {
+                console.log(data, response.status);
+                this.setState(state => ({
+                    recipe: data,
+                }))
+            //  this.state.recipe = data;
+            });
+        })
+    }
     render(){
-        const ingredients = ['one', 'two', 'three'];
-        const instructions = ['First Step','Second Step','Third Step','Fourth Step','Fifth Step'];
+        
+        let ingredients = ['one', 'two', 'three'];
+        let instructions = ['First Step','Second Step','Third Step','Fourth Step','Fifth Step'];
+        this.get_recipe_data(1);
 
+        console.log(this.state.recipe);
+      /*  if (this.state.recipe != undefined){
+            ingredients = this.state.recipe.ingredients;
+            instructions = this.state.recipe.recipeInstructions.split("\n");
+        }*/
+        
         const ingredientList = [];
         const instructionList = [];
 
