@@ -9,4 +9,8 @@ body {
  .recipe-intructions input{
    width:100%;
  }
+ .carousel .slide img.recipeImg{
+   max-height:750px;
+   width: fit-content;
+ }
   

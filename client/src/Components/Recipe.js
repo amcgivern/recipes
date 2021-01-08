@@ -15,6 +15,9 @@ class Recipe extends React.Component{
                     recipe: {}, };
       this.click_server = this.click_server.bind(this);
       this.get_recipe_data = this.get_recipe_data.bind(this);
+
+      this.get_recipe_data(1);
+      console.log(this.state.recipe);
     }
 
     click_server() {
@@ -53,71 +56,100 @@ class Recipe extends React.Component{
         })
     }
     render(){
-        
         let ingredients = ['one', 'two', 'three'];
         let instructions = ['First Step','Second Step','Third Step','Fourth Step','Fifth Step'];
-        this.get_recipe_data(1);
-
-        console.log(this.state.recipe);
-      /*  if (this.state.recipe != undefined){
-            ingredients = this.state.recipe.ingredients;
-            instructions = this.state.recipe.recipeInstructions.split("\n");
-        }*/
-        
+        let authorName = "author here";
+        let aggregateRating = "agg rating";
+        let recipeDescription = "this is a recipe";
+        let recipeName = "RECIPE NAME";
+        let servings = "num servings";
+        let prepTime = "preptime";
+        let cookTime = "cooktime";
+        let totalTime = "totaltime";
         const ingredientList = [];
         const instructionList = [];
+        const imageList = [];
 
-        for (const [index, value] of ingredients.entries()) {
-            ingredientList.push(
-            <label>
-                <input key={index} type="checkbox"></input>
-                {value}
-            </label>)
-          }
+        if (this.state.recipe != undefined){
+            if (this.state.recipe.ingredients != undefined){
+                ingredients = this.state.recipe.ingredients;
+            }
+            if (this.state.recipe.recipeIngredient != undefined){
+                ingredients = this.state.recipe.recipeIngredient;
+            }
+            if (this.state.recipe.recipeInstructions != undefined){
+                instructions = this.state.recipe.recipeInstructions;
+            }
+            recipeDescription = this.state.recipe.description;
+            recipeName = this.state.recipe.name;
+            servings = this.state.recipe.recipeYield;
+            cookTime = this.state.recipe.cookTime;
+            prepTime = this.state.recipe.prepTime;
+            totalTime = this.state.recipe.totalTime;
 
-          for (const [index, value] of instructions.entries()) {
-            instructionList.push(<li key={index}>{value}</li>)
-          }
+            for (const [index, value] of ingredients.entries()) {
+                ingredientList.push(
+                <label key={index}>
+                    <input key={index} type="checkbox"></input>
+                    {value}
+                </label>)
+            }
+
+            for (const [index, value] of instructions.entries()) {
+                instructionList.push(<li key={index}>{value.text}</li>)
+            }
+            if (this.state.recipe.image){
+                for (const [index, value] of this.state.recipe.image.entries()) {
+                        imageList.push(<div>
+                                            <img className="recipeImg" src={value} />
+                                            <p className="legend">Legend 1</p>
+                                        </div>);
+                }
+            }
+            if (this.state.recipe.author && this.state.recipe.author.name){
+                authorName = this.state.recipe.author.name;
+            }
+            if (this.state.recipe.aggregateRating && this.state.recipe.aggregateRating.ratingValue){
+                aggregateRating = this.state.recipe.aggregateRating.ratingValue;
+            }
+        }
 
       return (
       <div class="recipe-card">
         <div class="col-sm-12">
-            <h2>Recipe Name</h2>
+            <h2>{recipeName}</h2>
         </div>   
         <div class="row">
-            <button onClick={this.click_server}>
-                Clicks: {this.state.num_clicks}
-            </button>
-
             <div class="col-sm-9">
                 <div class="recipe-img-carousel">
                     <Carousel >
-                    <div>
-                        <img src={image1} />
-                        <p className="legend">Legend 1</p>
-                    </div>
-                    <div>
-                        <img src={image2} />
-                        <p className="legend">Legend 2</p>
-                    </div>
-                    <div>
-                        <img src={image3} />
-                        <p className="legend">Legend 3</p>
-                    </div>
+                        {imageList}
                     </Carousel>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="author-info">
                         <img alt="Author Profile"></img>
-                        <div>Author's name</div>
+                        <div>{authorName}</div>
                         <a>Link to Recipe Website</a>
                 </div>
                 <div>
                     <h3>Ratings</h3>
+                    <div class="taste-rating">Aggregate: {aggregateRating}</div>
                     <div class="taste-rating">Taste: *****</div>
                     <div class="ease-rating">Ease: *****</div>
                     <div class="speed-rating">Speed: *****</div>
+                </div>
+                <div>
+                    <label> Prep time:
+                        <div>{prepTime}</div>
+                    </label>
+                    <label> cookTime time:
+                        <div>{cookTime}</div>
+                    </label>
+                    <label> Total time:
+                        <div>{totalTime}</div>
+                    </label>
                 </div>
             </div>
         </div> 
@@ -135,7 +167,7 @@ class Recipe extends React.Component{
                 </ul>
             </div>
         </div>
-                  This is a recipe
+            {recipeDescription}
       </div>)
     }
   }
