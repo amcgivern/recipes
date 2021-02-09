@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 import { Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
-
-function Navbar(props){
+export default class Navbar extends Component{
+   state = {}
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  render(){
+    const { activeItem } = this.state;
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <Link to="/" className="nav-link">Recipe Website</Link>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-            </form>
-            <ul class="navbar-nav mr-auto">
-            <li><Link to="/account" className="nav-link">My Account</Link></li>
-            <li><Link to="/recipe" className="nav-link">Recipe</Link></li>
-            </ul>
+        <nav class="ui menu">
+            <div class="active item"><Link to="/" className="">Recipe Website</Link></div>
+            <div class="item"><Link to="/account" className="">My Account</Link></div>
+            <div class="item"><Link to="/recipe" className="">Recipe</Link></div>
+            <div class="item"><Link to="/recipeGrid" className="">Recipe List</Link></div>
+            <div class="right menu">
+              <div class="item">
+                <div class="ui icon input">
+                  <input type="text" placeholder="Search..."></input>
+                  <i class="search link icon"></i>
+                </div>
+              </div>
+              <a class="ui item">
+                Logout
+              </a>
           </div>
         </nav>
     )
+  }
 }
 
-export default Navbar;

@@ -13,4 +13,11 @@ body {
    max-height:750px;
    width: fit-content;
  }
-  
+ .ingredient-list label {
+  float: left;
+}
+.ingredient-list ul {
+  margin: 0;
+  list-style: none;
+  float: left;
+}

@@ -5,7 +5,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar.js';
 import Home from './Components/Home.js';
 import Account from './Components/Account.js';
-import Recipe from './Components/Recipe';
+import Recipe from './Components/Recipe.js';
+import RecipeGrid from './Components/RecipeGrid.js';
 
   // ========================================
   
@@ -18,6 +19,7 @@ import Recipe from './Components/Recipe';
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/account" component={Account}></Route>
                 <Route exact path="/recipe" component={Recipe}></Route>
+                <Route exact path="/recipeGrid" component={RecipeGrid}></Route>
               </Switch>
           </BrowserRouter>
       </div>

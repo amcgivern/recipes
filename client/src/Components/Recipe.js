@@ -89,14 +89,16 @@ class Recipe extends React.Component{
 
             for (const [index, value] of ingredients.entries()) {
                 ingredientList.push(
-                <label key={index}>
-                    <input key={index} type="checkbox"></input>
-                    {value}
-                </label>)
+                <li>
+                    <label key={index}>
+                        <input key={index} className="item" type="checkbox"></input>
+                        {value}
+                    </label>
+                </li>)
             }
 
             for (const [index, value] of instructions.entries()) {
-                instructionList.push(<li key={index}>{value.text}</li>)
+                instructionList.push(<li className="item" key={index}>{value.text}</li>)
             }
             if (this.state.recipe.image){
                 for (const [index, value] of this.state.recipe.image.entries()) {
@@ -115,52 +117,60 @@ class Recipe extends React.Component{
         }
 
       return (
-      <div class="recipe-card">
-        <div class="col-sm-12">
+      <div className="recipe-card ui grid">
+        <div className="col-sm-12">
             <h2>{recipeName}</h2>
         </div>   
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="recipe-img-carousel">
+        <div className="row ui horizontal segments">
+            <div className="column nine wide ui segment">
+                <div className="recipe-img-carousel">
                     <Carousel >
                         {imageList}
                     </Carousel>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="author-info">
-                        <img alt="Author Profile"></img>
-                        <div>{authorName}</div>
+            <div className="column three wide ui segment">
+                <div className="author-info ui card">
+                        <img className="image" alt="Author Profile"></img>
+                        <div className="header">{authorName}</div>
                         <a>Link to Recipe Website</a>
                 </div>
-                <div>
+                <div className="ui segment">
                     <h3>Ratings</h3>
-                    <div class="taste-rating">Aggregate: {aggregateRating}</div>
-                    <div class="taste-rating">Taste: *****</div>
-                    <div class="ease-rating">Ease: *****</div>
-                    <div class="speed-rating">Speed: *****</div>
+                    <div className="taste-rating">Aggregate: {aggregateRating}</div>
+                    <div className="taste-rating">Taste: *****</div>
+                    <div className="ease-rating">Ease: *****</div>
+                    <div className="speed-rating">Speed: *****</div>
                 </div>
-                <div>
-                    <label> Prep time:
-                        <div>{prepTime}</div>
-                    </label>
-                    <label> cookTime time:
-                        <div>{cookTime}</div>
-                    </label>
-                    <label> Total time:
-                        <div>{totalTime}</div>
-                    </label>
+                <div className="ui segment">
+                    <div className="">
+                        <label> Prep Time:
+                            <div>{prepTime}</div>
+                        </label>
+                    </div>
+                    <div className="">
+                        <label className="column"> Cook Time:
+                            <div className="column">{cookTime}</div>
+                        </label>
+                    </div>
+                    <div className="">
+                        <label> Total Time:
+                            <div>{totalTime}</div>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div> 
-        <div class="row">
-            <div class="col-sm-4">
-                <fieldset class="ingredient-list">
-                <h2>Ingredients</h2>                
-                {ingredientList}
+        <div className="row ui horizontal segments">
+            <div className="four wide column ui segment">
+                <fieldset className="ingredient-list">
+                    <h2>Ingredients</h2> 
+                    <ul>
+                        {ingredientList}
+                    </ul>               
                 </fieldset>
             </div>
-            <div class="recipe-intructions col-sm-8">
+            <div className="recipe-intructions eight wide column ui segment">
                 <h2>Instructions</h2> 
                 <ul>
                     {instructionList}
