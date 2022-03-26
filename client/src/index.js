@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar.js';
-import Home from './Components/Home.js';
-import Account from './Components/Account.js';
-import Recipe from './Components/Recipe.js';
-import RecipeGrid from './Components/RecipeGrid.js';
+import { Home } from './components/Home';
+import { Account } from './components/Account.js';
+import { Recipe } from './components/RecipeCard/Recipe';
+import { Navbar } from './components/Navbar';
+import RecipeGrid from './components/RecipeGrid';
+
 
   // ========================================
   
@@ -20,6 +22,7 @@ import RecipeGrid from './Components/RecipeGrid.js';
                 <Route exact path="/account" component={Account}></Route>
                 <Route exact path="/recipe" component={Recipe}></Route>
                 <Route exact path="/recipeGrid" component={RecipeGrid}></Route>
+                <Route exact path="/" component={RecipeGrid}></Route>
               </Switch>
           </BrowserRouter>
       </div>

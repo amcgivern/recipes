@@ -1,18 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+export function Home() {
+  return (
+  <div>
 
-class Home extends React.Component{
-    constructor(props) {
-      super(props);
 
-    }
-    render(){
-      return (<div>
-        
-
-          This is the Homepage
-      </div>)
-    }
-  }
-  
-  export default Home;
+    This is the Homepage
+  </div>
+  )
+};
