@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react'
-import RecipeCard from './RecipeCard.js'
+import { RecipeCard } from './RecipeCard.js'
 
 export function RecipeGrid() {
     const [recipes, setRecipes] = useState([]);
@@ -25,8 +25,8 @@ export function RecipeGrid() {
     return (
         <div>
             <Grid columns='three' divided>
-                {recipes.map(recipe => 
-                    <RecipeCard key={recipe} props={recipe}/>
+                {recipes.map(recipe =>
+                    <RecipeCard key={recipe.id} recipe={recipe} />
                 )}
                 <Grid.Row>
                     <Grid.Column>

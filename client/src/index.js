@@ -20,9 +20,8 @@ import RecipeGrid from './components/RecipeGrid';
               <Switch>
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/account" component={Account}></Route>
-                <Route exact path="/recipe" component={Recipe}></Route>
+                <Route exact path="/recipe/:id" component={Recipe}></Route>
                 <Route exact path="/recipeGrid" component={RecipeGrid}></Route>
-                <Route exact path="/" component={RecipeGrid}></Route>
               </Switch>
           </BrowserRouter>
       </div>

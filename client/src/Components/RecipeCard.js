@@ -1,27 +1,31 @@
 import React from 'react';
 import { Image, Card } from 'semantic-ui-react'
+import { useHistory } from "react-router-dom";
 
-function RecipeCard({props}) {
+export function RecipeCard({ recipe }) {
+
+  const history = useHistory();
+
+  function handleClick() {
+    history.push(`/recipe/${recipe.id}`);
+  }
 
   return (
     <Card>
       <Image wrapped ui={false} />
-      <Card.Content>
-        <Card.Header>{props.name}</Card.Header>
+      <Card.Content onClick={handleClick}>
+        <Card.Header>{recipe?.name}</Card.Header>
         <Card.Meta>
           <span className='date'></span>
         </Card.Meta>
         <Card.Description>
-          <Image src={props.image.url} />
-          {props.description}
+          <Image src={recipe?.image?.url} />
+          {recipe?.description}
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        {props.author.name}
+        {recipe?.author?.name}
       </Card.Content>
     </Card>
   )
 }
-
-
-export default RecipeCard;
