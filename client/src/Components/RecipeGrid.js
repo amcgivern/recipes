@@ -5,7 +5,7 @@ import { RecipeCard } from "./RecipeCard.js";
 
 export function RecipeGrid() {
     const [recipes, setRecipes] = useState([]);
-    const { history } = useHistory();
+    const history = useHistory();
     useEffect(() => {
         const getRecipeData = async () => {
             const response = await fetch("http://localhost:3001/recipes");

@@ -7,6 +7,7 @@ import { Account } from "./components/Account.js";
 import { Recipe } from "./components/RecipePage/RecipePage";
 import { Navbar } from "./components/Navbar";
 import RecipeGrid from "./components/RecipeGrid";
+import { AddRecipe } from "./components/AddRecipe";
 
 // ========================================
 
@@ -18,13 +19,23 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Home}></Route>
                     <Route exact path="/account" component={Account}></Route>
-                    <Route exact path="/recipe/new" component={Recipe}></Route>
-                    <Route exact path="/recipe/:id" component={Recipe}></Route>
                     <Route
                         exact
                         path="/recipeGrid"
                         component={RecipeGrid}
                     ></Route>
+                    <Switch>
+                        <Route
+                            exact
+                            path="/recipe/new"
+                            component={AddRecipe}
+                        ></Route>
+                        <Route
+                            exact
+                            path="/recipe/:id"
+                            component={Recipe}
+                        ></Route>
+                    </Switch>
                 </Switch>
             </BrowserRouter>
         </div>
