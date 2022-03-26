@@ -1,6 +1,6 @@
-import React from "react";
-import { Image, Card } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { Image, Card } from 'semantic-ui-react';
+import { useHistory } from 'react-router-dom';
 
 export function RecipeCard({ recipe }) {
     const history = useHistory();

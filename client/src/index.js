@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./styles/index.scss";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Home } from "./components/Home";
-import { Account } from "./components/Account.js";
-import { Recipe } from "./components/RecipePage/RecipePage";
-import { Navbar } from "./components/Navbar";
-import RecipeGrid from "./components/RecipeGrid";
-import { AddRecipe } from "./components/AddRecipe";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './styles/index.scss';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Home } from './components/Home';
+import { Account } from './components/Account.js';
+import { Recipe } from './components/RecipePage/RecipePage';
+import { Navbar } from './components/Navbar';
+import RecipeGrid from './components/RecipeGrid';
+import { AddRecipe } from './components/AddRecipe';
 
 // ========================================
 
@@ -42,4 +42,4 @@ function App() {
     );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));

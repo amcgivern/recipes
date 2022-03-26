@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Button, Grid, Image } from "semantic-ui-react";
-import { RecipeCard } from "./RecipeCard.js";
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button, Grid, Image } from 'semantic-ui-react';
+import { RecipeCard } from './RecipeCard.js';
 
 export function RecipeGrid() {
     const [recipes, setRecipes] = useState([]);
     const history = useHistory();
     useEffect(() => {
         const getRecipeData = async () => {
-            const response = await fetch("http://localhost:3001/recipes");
+            const response = await fetch('http://localhost:3001/recipes');
             if (response.status !== 200) {
                 console.log(
-                    "Looks like there was a problem. Status Code: " +
+                    'Looks like there was a problem. Status Code: ' +
                         response.status
                 );
                 return;
@@ -26,7 +26,7 @@ export function RecipeGrid() {
     }, []);
 
     function addRecipe() {
-        history.push("/recipe/new");
+        history.push('/recipe/new');
     }
 
     return (

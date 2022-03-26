@@ -1,4 +1,4 @@
-import { Meal } from "./Meal";
+import { Meal } from './Meal';
 
 export function MealPlan() {
     return (
