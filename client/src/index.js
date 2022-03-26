@@ -5,7 +5,7 @@ import './styles/index.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Account } from './components/Account.js';
-import { Recipe } from './components/RecipeCard/Recipe';
+import { Recipe } from './components/RecipePage/RecipePage';
 import { Navbar } from './components/Navbar';
 import RecipeGrid from './components/RecipeGrid';
 

@@ -32,17 +32,13 @@ export function Recipe() {
         getRecipeData(1);
     }, [getRecipeData]);
 
-    let ingredients = ['one', 'two', 'three'];
-    const ingredientList = [];
-    const imageList = [];
+    let ingredients = [];
 
-    if (recipe !== undefined) {
-        if (recipe.ingredients !== undefined) {
-            ingredients = recipe.ingredients;
-        }
-        if (recipe.recipeIngredient !== undefined) {
-            ingredients = recipe.recipeIngredient;
-        }
+    if (recipe?.ingredients !== undefined) {
+        ingredients = recipe.ingredients;
+    }
+    if (recipe?.recipeIngredient !== undefined) {
+        ingredients = recipe.recipeIngredient;
     }
 
     return (
@@ -61,7 +57,7 @@ export function Recipe() {
                         prepTime={recipe?.prepTime}
                         cookTime={recipe?.cookTime}
                         totalTime={recipe?.totalTime}
-                />
+                    />
                 </div>
             </div>
             <div className="row ui horizontal segments">
@@ -71,5 +67,6 @@ export function Recipe() {
                 <RecipeInstructions instructionList={recipe?.instructions} />
             </div>
             {recipe?.description}
-        </div>)
+        </div>
+    )
 }

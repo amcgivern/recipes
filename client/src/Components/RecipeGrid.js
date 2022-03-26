@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react'
-import RecipeCard from './RecipeCard/RecipeCard.js'
+import RecipeCard from './RecipeCard.js'
 
 export function RecipeGrid() {
     const [recipes, setRecipes] = useState([]);
