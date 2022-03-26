@@ -1,7 +1,3 @@
 export function Meal(props) {
-  return (
-    <div>
-      {props}
-    </div>
-  )
+    return <div>{props}</div>;
 }

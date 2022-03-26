@@ -1,23 +1,24 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
-  }
-  
-  ol, ul {
+}
+
+ol,
+ul {
     padding-left: 30px;
-  }
- .recipe-intructions input{
-   width:100%;
- }
- .carousel .slide img.recipeImg{
-   max-height:750px;
-   width: fit-content;
- }
- .ingredient-list label {
-  float: left;
+}
+.recipe-intructions input {
+    width: 100%;
+}
+.carousel .slide img.recipeImg {
+    max-height: 750px;
+    width: fit-content;
+}
+.ingredient-list label {
+    float: left;
 }
 .ingredient-list ul {
-  margin: 0;
-  list-style: none;
-  float: left;
+    margin: 0;
+    list-style: none;
+    float: left;
 }

@@ -1,7 +1,4 @@
-import React from 'react';
-
-
-
+import React from "react";
 
 export function RecipeInstructions({ instructionList = [] }) {
     return (
@@ -14,5 +11,6 @@ export function RecipeInstructions({ instructionList = [] }) {
                     </li>
                 ))}
             </ul>
-        </div>);
+        </div>
+    );
 }

@@ -1,9 +1,6 @@
-import React from 'react';
+import React from "react";
 
-
-
-
-export function RecipeIngredients({ ingredientList=[] }) {
+export function RecipeIngredients({ ingredientList = [] }) {
     return (
         <fieldset className="ingredient-list">
             <h2>Ingredients</h2>
@@ -19,5 +16,4 @@ export function RecipeIngredients({ ingredientList=[] }) {
             </ul>
         </fieldset>
     );
-
 }
