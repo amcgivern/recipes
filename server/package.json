@@ -9,11 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^3.11.1",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^8.7.3"
   },
-  "type": "module",
+  "type": "commonjs",
   "devDependencies": {
-    "prettier": "2.6.1"
+    "prettier": "2.6.1",
+    "prisma": "^3.11.1"
   }
 }

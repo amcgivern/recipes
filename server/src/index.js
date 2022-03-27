@@ -1,11 +1,19 @@
-import express from "express";
-import cors from "cors";
-import fs from "fs";
+const express = require("express");
+const cors =    require("cors");
+const fs = require("fs");
+const {PrismaClient} = require('@prisma/client')
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 let clicks_counter = 0;
+const prisma = new PrismaClient({
+    datasources: {
+      db: {
+        url: process.env["DATABASE_URL"],
+      },
+    },
+  })
 
 const recipesPath = "data/recipes.json";
 
@@ -27,6 +35,14 @@ app.get("/recipes/:recipeId", (req, res) => {
   return res.json(recipes.recipes[req.params.recipeId]);
 });
 
+app.get('/yolo', async (req, res) => {
+    const posts = await prisma.Author.findMany({
+      where: { firstName: 'amanda' },
+    })
+    console.log("result", posts)
+    res.json(posts);
+  })
+  
 app.post("/recipe", (req, res) => {
   console.log("new recipe", recipes);
   recipes.recipes.push(req.body);
